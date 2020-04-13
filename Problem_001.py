@@ -21,14 +21,8 @@
 # Similarly for N = 100, we get 2318
 #################################################################################################################
 
-
-
 # list of variables
 list_of_integers = []
-sum_of_3ths = 0
-sum_of_5ths = 0
-sum_of_15ths = 0
-
 
 # inputs
 number_of_integers = int(input("Enter the number of integers: "))
@@ -37,19 +31,27 @@ for i in range(0, number_of_integers):
     list_of_integers.append(int(input("Input Integer {} in list: ".format(i+1))))
 
 for i in range(0, number_of_integers):
-    N = list_of_integers[i] - 1
-    for i in range(0, N//3):
-        sum_of_3ths += 3*(i+1)
-    for i in range(0, N//5):
-        sum_of_5ths += 5*(i+1)
-    for i in range(0, N//15):
-        sum_of_15ths += 15*(i+1)
-    sum_of_3ths_and_5ths_minus_multiples= sum_of_3ths + sum_of_5ths - sum_of_15ths
-    print(sum_of_3ths_and_5ths_minus_multiples)
-    
-    #reseting points for next itterations
-    sum_of_3ths = 0
-    sum_of_5ths = 0
-    sum_of_15ths = 0
-    
+   #exluding the last number
+    nth_intervals = list_of_integers[i] - 1
 
+    #how many times the is the number divisible by its respective integer
+
+    number_of_3th_intervals = nth_intervals//3
+    number_of_5th_intervals = nth_intervals//5
+    number_of_15th_intervals = nth_intervals//15
+
+
+    median_of_3th_intervals = ((number_of_3th_intervals+1)/2)
+    sum_of_3th_intervals = (3*median_of_3th_intervals) * number_of_3th_intervals
+
+    median_of_5th_intervals = ((number_of_5th_intervals+1)/2)
+    sum_of_5th_intervals = (5*median_of_5th_intervals) * number_of_5th_intervals
+
+    median_of_15th_intervals = ((number_of_15th_intervals+1)/2)
+    sum_of_15th_intervals =  (15*median_of_15th_intervals) * number_of_15th_intervals
+
+
+    sum_of_third_and_fifth_intervals_minus_the_duplicates = sum_of_3th_intervals + sum_of_5th_intervals - sum_of_15th_intervals
+    print(int(sum_of_third_and_fifth_intervals_minus_the_duplicates))
+    
+ 
