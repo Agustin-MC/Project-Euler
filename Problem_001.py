@@ -25,7 +25,9 @@
 
 # list of variables
 list_of_integers = []
-
+sum_of_3ths = 0
+sum_of_5ths = 0
+sum_of_15ths = 0
 
 
 # inputs
@@ -34,6 +36,20 @@ number_of_integers = int(input("Enter the number of integers: "))
 for i in range(0, number_of_integers):
     list_of_integers.append(int(input("Input Integer {} in list: ".format(i+1))))
 
-
+for i in range(0, number_of_integers):
+    N = list_of_integers[i] - 1
+    for i in range(0, N//3):
+        sum_of_3ths += 3*(i+1)
+    for i in range(0, N//5):
+        sum_of_5ths += 5*(i+1)
+    for i in range(0, N//15):
+        sum_of_15ths += 15*(i+1)
+    sum_of_3ths_and_5ths_minus_multiples= sum_of_3ths + sum_of_5ths - sum_of_15ths
+    print(sum_of_3ths_and_5ths_minus_multiples)
+    
+    #reseting points for next itterations
+    sum_of_3ths = 0
+    sum_of_5ths = 0
+    sum_of_15ths = 0
     
 
