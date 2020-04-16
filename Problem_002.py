@@ -24,11 +24,26 @@
 
 # list of variables
 list_of_integers = []
-
+fibonacci_series = [0,1]
+sum_of_evens = 0
+                
 # inputs
 number_of_integers = int(input("Enter the number of integers: "))
 
 for i in range(0, number_of_integers):
     list_of_integers.append(int(input("Input Integer {} in list: ".format(i+1))))
     
-print(list_of_integers)
+for i in range(0, number_of_integers):
+    N = list_of_integers[i]
+    
+    while fibonacci_series[-1] <= N:
+        if fibonacci_series[-1] % 2 == 0:
+            sum_of_evens += fibonacci_series[-1]
+        fibonacci_series.append(fibonacci_series[-1] + fibonacci_series[-2])    
+            
+    print(sum_of_evens)
+# reseting variables     
+    sum_of_evens = 0
+    fibonacci_series = [0,1]
+    
+    
